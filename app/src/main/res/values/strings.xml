@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="celcius">&#176;C</string>
+    <string name="city_name">City name</string>
+    <string name="_5_32_am">5:32 AM</string>
+    <string name="_5_32_pm">5:32 PM</string>
+    <string name="location_icon">location icon</string>
+    <string name="dot">...</string>
+</resources>
