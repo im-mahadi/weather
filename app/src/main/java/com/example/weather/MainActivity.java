@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.weather.databinding.ActivityMainBinding;
@@ -58,6 +56,12 @@ public class MainActivity extends AppCompatActivity{
             binding.condition.setText(currentWeather.getCondition());
             binding.sunrise.setText(currentWeather.getSunrise());
             binding.sunset.setText(currentWeather.getSunset());
+            binding.max.setText(currentWeather.getMax());
+            binding.min.setText(currentWeather.getMin());
+            binding.visibility.setText(currentWeather.getVisibility());
+            binding.pressure.setText(currentWeather.getPressure());
+            binding.wind.setText(currentWeather.getWind());
+            binding.humidity.setText(currentWeather.getHumidity());
         });
     }
 

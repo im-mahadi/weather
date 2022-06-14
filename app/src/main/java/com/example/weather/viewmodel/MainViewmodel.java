@@ -63,7 +63,8 @@ public class MainViewmodel extends AndroidViewModel implements Runnable {
     }
 
     private void setWeatherData(@NonNull JSONObject jsonObject) throws JSONException {
-        String temperature = jsonObject.getJSONObject("main").getString("temp");
+        JSONObject mainObject = jsonObject.getJSONObject("main");
+        String temperature = mainObject.getString("temp");
 
         String condition = jsonObject.getJSONArray("weather").getJSONObject(0).getString("description");
 
@@ -71,12 +72,24 @@ public class MainViewmodel extends AndroidViewModel implements Runnable {
         String sunrise = sun.getString("sunrise");
         String sunset = sun.getString("sunset");
 
+        String max = mainObject.getString("temp_max");
+        String min = mainObject.getString("temp_min");
+        String visibility = jsonObject.getString("visibility");
+
+        String humidity = jsonObject.getJSONObject("main").getString("humidity");
+        String pressure = jsonObject.getJSONObject("main").getString("pressure");
+        String wind = jsonObject.getJSONObject("wind").getString("speed");
+
+
         _currentWeather.setValue(new CurrentWeather(
                 Formatter.setFirstLetterUppercase(Objects.requireNonNull(_location.getValue())),
                 Formatter.kelvinToCelcius(temperature),
                 Formatter.setFirstLetterUppercase(condition),
                 Formatter.TimestampToTime(sunrise),
-                Formatter.TimestampToTime(sunset)
+                Formatter.TimestampToTime(sunset),
+                Formatter.kelvinToCelcius(max),
+                Formatter.kelvinToCelcius(min),
+                visibility, wind, humidity, pressure
         ));
     }
 }

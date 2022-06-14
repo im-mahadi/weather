@@ -84,6 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -113,9 +114,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="@string/_5_32_am"
                     android:textSize="20sp"
-                    app:drawableTopCompat="@drawable/ic_baseline_wb_sunny_24" />
+                    app:drawableTopCompat="@drawable/ic_baseline_wb_sunny_24"
+                    tools:text="@string/_5_32_am" />
             </LinearLayout>
 
 
@@ -141,14 +142,65 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:text="@string/_5_32_pm"
                     android:textSize="20sp"
-                    app:drawableTopCompat="@drawable/ic_baseline_nights_stay_24" />
+                    app:drawableTopCompat="@drawable/ic_baseline_nights_stay_24"
+                    tools:text="@string/_5_32_pm" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/max"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_max_temp"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_min_temp"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/visibility"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_smog"
+            tools:text="20" />
+
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/condition"
@@ -159,6 +211,53 @@
         app:layout_constraintStart_toStartOf="@+id/temperature"
         app:layout_constraintTop_toBottomOf="@+id/temperature"
         tools:text="Haze" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/animationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_wind"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_humidity"
+            tools:text="20" />
+
+        <TextView
+            android:id="@+id/pressure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textColor="#C7C6C6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:drawableTopCompat="@drawable/ic_pressure"
+            tools:text="20" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
