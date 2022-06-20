@@ -44,6 +44,12 @@ public class MainViewmodel extends AndroidViewModel implements Runnable {
         getWeatherDataFromApi();
     }
 
+
+    /**
+     * this method bring data from openweather api using volley library, to make the request
+     * requires api key and base url. then retrieved jsonObject format data sent to another method
+     * to format them properly.
+     */
     public void getWeatherDataFromApi(){
         String apiKey = "137d8b17df3d597ee6a93aef967ba9e6";
         String openWeatherURL = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -62,6 +68,12 @@ public class MainViewmodel extends AndroidViewModel implements Runnable {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * after receiving data as json format those data need to be string format
+     * so, this method organize them in string format
+     * @param jsonObject weather data in jsonObject format
+     * @throws JSONException if json is null or can't read properly
+     */
     private void setWeatherData(@NonNull JSONObject jsonObject) throws JSONException {
         JSONObject mainObject = jsonObject.getJSONObject("main");
         String temperature = mainObject.getString("temp");
