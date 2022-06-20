@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity{
         thread.start();
     }
 
+    /**
+     * initially when app starts it have no weather data to show so its stay black,
+     * after retrieving data from api, the weather data changed and thus effect the viewmodel
+     * and every changes in viewmodel re render the ui values.
+     *
+     */
     private void updateWeather() {
         viewmodel.getCurrentWeather().observe(this, currentWeather -> {
             binding.city.setText(currentWeather.getLocation());
