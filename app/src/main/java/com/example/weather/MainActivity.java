@@ -26,17 +26,7 @@ public class MainActivity extends AppCompatActivity{
         viewmodel = new ViewModelProvider(this)
                 .get(MainViewmodel.class);
 
-        //input change change the location in viewmodel thus effect the weather data
-        binding.input.setOnEditorActionListener((v, actionId, event) -> {
-            boolean handled = false;
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                viewmodel.setLocation(binding.input.getText().toString());
-                viewmodel.getWeatherDataFromApi();
-                handled = true;
-            }
-            return handled;
-        });
-
+        inputClickListener();
         updateWeather();
     }
 
@@ -49,6 +39,28 @@ public class MainActivity extends AppCompatActivity{
         thread.start();
     }
 
+    /**
+     * when input done button clicked it set the weather location value,
+     * thus update the weather data according the location
+     */
+    private void inputClickListener(){
+        binding.input.setOnEditorActionListener((v, actionId, event) -> {
+            boolean handled = false;
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                viewmodel.setLocation(binding.input.getText().toString());
+                viewmodel.getWeatherDataFromApi();
+                handled = true;
+            }
+            return handled;
+        });
+    }
+
+    /**
+     * initially when app starts it have no weather data to show so its stay blank,
+     * after retrieving data from api, the weather data changed and thus effect the viewmodel
+     * and every changes in viewmodel re render the ui values.
+     *
+     */
     private void updateWeather() {
         viewmodel.getCurrentWeather().observe(this, currentWeather -> {
             binding.city.setText(currentWeather.getLocation());
